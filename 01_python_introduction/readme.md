@@ -39,4 +39,3 @@ All you need is:
 - Python 3.x installed on your system  
 - A text editor or IDE (VS Code, PyCharm, etc.)  
 - Basic computer skills and curiosity 😊
-
