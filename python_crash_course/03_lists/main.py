@@ -1,6 +1,12 @@
+#Lists
 #A list is a collection of items (elements) that are ordered and mutable
 # (i.e., you can change the items in the list). Lists are created by placing the items inside square brackets [], separated by commas.
 
+#KeyPoints:
+# A list is an ordered collection of items (elements).
+# Lists are mutable (i.e., you can change their content).
+# Lists can store different types of data
+# Since lists are indexed, lists can have items with the same value
 
 bicycles = ['trek', 'cannondale', 'redline', 'specialized']
 print(bicycles)
@@ -132,4 +138,79 @@ motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles[3])  #It will give error as there is no value on 3 index
 
 
+#Using For loop in Lists
+magicians = ['alice', 'david', 'carolina']
+for magician in magicians:
+    print(magician)
+
+
+magicians = ['alice', 'david', 'carolina']
+for magician in magicians:
+    print(magician.title()+", is doing a great job")
+    print("I can't wait to see your next trick, " + magician.title() + ".\n")
+print("Thank you, everyone. That was a great magic show!")
+
+
+#Using the range() Function
+#range(start,stop,step)
+for value in range(1,5): #range(start,stop,step)
+    print(value)
+
+for value in range(5):
+    print(value)
+
+#For below code range will be converted to list
+numbers = list(range(1,6))
+print(numbers)
+
+#To print even numbers using range
+#range(start,stop,step)
+even_numbers = range(2,10,2)
+print(list(even_numbers))
+
+#Simple Statistics with a List of Numbers
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+print(min(digits))
+print(max(digits))
+print(sum(digits))
+
+
+#List Comprehensions
+squares = [value**2 for value in range(1,11)]
+print(squares)
+
+cubes = [ value **3 for value in range(1,15)]
+print(cubes)
+
+
+#Slicing a List
+#[start:end:step] means start index value is included but last index value is not included
+
+# Make a list of players
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+
+# Print players from index 0 to 2 (0, 1, 2 included; 3 is not included)
+print(players[0:3])    # ['charles', 'martina', 'michael']
+
+# Print players from start (index 0) to index 3 (index 4 is not included)
+print(players[:4])     # ['charles', 'martina', 'michael', 'florence']
+
+# Print players starting from index 2 till the end
+print(players[2:])     # ['michael', 'florence', 'eli']
+
+# Print the last 3 players
+print(players[-3:])    # ['michael', 'florence', 'eli']
+
+# Print from 3rd last player to 2nd last player (not including the very last player)
+print(players[-3:-1])  # ['michael', 'florence']
+
+
+# Copying a List
+my_foods = ['pizza', 'falafel', 'carrot cake']
+print(my_foods[:])
+friend_foods = my_foods[:]
+print("My favorite foods are:")
+print(my_foods)
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
 
