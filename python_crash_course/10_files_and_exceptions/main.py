@@ -34,3 +34,47 @@ with open(filename, 'a') as file_object:
 
 
 #Exceptions
+#Handling the ZeroDivisionError Exception
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+
+
+
+#The else Block
+try:
+    answer = int(first_number) / int(second_number)
+except ZeroDivisionError:
+    print("You can't divide by 0!")
+else:  # The else in exception will execute only when try block will be successful nad don't return any error.
+    print(answer)
+
+
+#Handling the FileNotFoundError Exception
+filename = 'alice.txt'
+try:
+    with open(filename) as f_obj:
+    contents = f_obj.read()
+except FileNotFoundError:
+    msg = "Sorry, the file " + filename + " does not exist."
+    print(msg)
+
+
+#Using finally in exception
+try:
+    number = int(input("Enter a number: "))
+except ValueError:
+    print("That's not a valid number!")
+else:
+    print(f"Success! You entered: {number}")
+finally:
+    print("This runs no matter what.")
+
+# try: Runs the risky code.
+# except: Runs only if an exception happens in try.
+# else: Runs only if no exception happened in try.
+# finally: Runs always, no matter if there was an error or not. It's often used for cleanup, like closing a file or a database connection.
+
+
+
