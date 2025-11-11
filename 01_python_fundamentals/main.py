@@ -1,3 +1,6 @@
+#Python was created by Guido van Rossum in the late 1980s and was first released in 1991
+
+
 x = 10  # This is a comment
 y = 20  # Python will ignore everything after the hash sign
 
@@ -65,3 +68,49 @@ __strong_private_var = 20  # Indicates a strongly private variable
 __init__ = 30  # Special language-defined name (used in class constructors)
 
 
+#Keywords
+#Keywords are reserved words in Python that have special meanings and cannot be used as regular identifiers (like variable names or function names).
+#Python v2 has 31 keywords.
+#Python v3 has 35 keywords.
+#New keywords in Python v3 include False, None, True, and nonlocal
+
+
+
+#Operators
+#Operators are non-alphanumeric characters and combinations of characters that Python uses to perform operations on data.
+
+# Arithmetic Operators ➕➖✖️➗
+#Comparison Operators  < > = <= >= !=
+#Bitwise Operators in Python (Bitwise operators in Python operate on the binary representations of numbers, allowing you to perform operations at the bit level)
+# & : Bitwise AND
+# | : Bitwise OR
+# ^ : Bitwise XOR (Exclusive OR)
+# ~ : Bitwise NOT (One’s Complement)
+# << : Left Shift
+# >> : Right Shift
+#Assignment Operators  =, +=, -=, *=, /=, //=, %= , **=
+#Logical Operators and, or, not
+#Membership Operators in, not in
+#Identity Operators is, is not
+
+
+
+#DataTypes
+#Mutable vs Immutable:
+#Mutable Objects: These are objects that can be changed after they are created. For example, lists and dictionaries (which we are not covering here).
+#Immutable Objects: These are objects that cannot be changed once they are created. For example, integers, floats, strings, and tuples.
+# Type Checking in Python:
+# Python provides two built-in functions to check the type of an object:
+# type(obj): Returns the type of the object obj.
+# isinstance(obj, type): Returns True if obj is an instance of type or class or any subclass.
+# x = 42
+# print(type(x))  # Output: <class 'int'>
+# print(isinstance(x, int))  # Output: True
+#Numeric Data Types int, float, complex
+#String Type, Boolean Type
+
+# Examples of imaginary literals
+print(0j, 0.j, 0.0j, .0j, 1j, 1.j, 1.0j, 1e0j, 1.e0j, 1.0e0j)
+
+# Complex numbers
+print(1+0j, 1.0+0.0j)
