@@ -317,15 +317,198 @@ lst = [1, 2, 2, 3, 2, 4]
 print(lst.count(2))  # Output: 3
 
 
+# extend(iterable) Method
+# Description: Extends the list by appending all the items from the iterable (e.g., another list, tuple).
+# Use Case: To combine multiple lists or add elements from an iterable to the current list.
+
+# Original list
+my_list = [1, 2, 3]
+# List to be added
+other_list = [4, 5, 6]
+# Extending the original list with other_list
+my_list.extend(other_list)
+print(my_list)  # Output: [1, 2, 3, 4, 5, 6]
+
+my_list = [1, 2, 3]
+my_tuple = (4, 5)
+# Extend list with a tuple
+my_list.extend(my_tuple)
+print(my_list)  # Output: [1, 2, 3, 4, 5]
+
+
+my_list = [1, 2]
+my_set = {3, 4}
+# Extend list with a set
+my_list.extend(my_set)
+print(my_list)  # Output: [1, 2, 3, 4]  (order of elements in a set is not guaranteed)
 
 
 
+# If we use extend() with a string, each character of the string is added as a separate element as it. When you use the extend() method with a string, each character in the string is treated as a separate item because strings in Python are iterables. This means that Python iterates through the string and adds each individual character to the list, rather than adding the entire string as a single element because extend() is an iterbale method
+my_list = [1, 2]
+my_string = "abc"
+# Extending list with a string
+my_list.extend(my_string)
+print(my_list)  # Output: [1, 2, 'a', 'b', 'c']
+
+
+# index(x, start=0, end=len(list)) Method
+# Description: Returns the index of the first occurrence of item x. Optional start and end arguments define a range to search within the list.
+# Use Case: To find the position of an item in the list.
+lst = [1, 2, 3, 4, 2]
+print(lst.index(2))  # Output: 1
+print(lst.index(2, 2))  # Output: 4 (search starts at index 2)
+
+
+# insert(i, x) Method
+# Description: Inserts item x at index i. Shifts the element currently at that position (if any) and subsequent elements to the right.
+# Use Case: To insert an item at a specific position in the list.
+lst = [1, 2, 4, 5]
+lst.insert(2, 3)  # Insert 3 at index 2
+print(lst)  # Output: [1, 2, 3, 4, 5]
+
+# pop(i=-1) Method
+# Description: Removes and returns the item at index i. If i is not specified, pop() removes and returns the last item in the list.
+# Use Case: Useful for both removing an item from a specific position and for stack-like behavior (LIFO).
+
+lst = [1, 2, 3, 4]
+print(lst.pop())  # Output: 4 (removes and returns the last item)
+print(lst.pop(0))  # Output: 1 (removes and returns the first item)
+print(lst.pop(-1))  # Output: 4 (removes and returns the last index item)
+
+# remove(x) Method
+# Description: Removes the first occurrence of item x from the list. Raises a ValueError if the item is not found.
+# Use Case: To remove a specific item from a list.
+lst = [1, 2, 3, 2, 4]
+lst.remove(2)
+print(lst)  # Output: [1, 3, 2, 4] (first 2 is removed)
+
+# reverse() Method
+# Description: Reverses the elements of the list in place.
+# Use Case: To reverse the order of elements in a list.
+lst = [1, 2, 3, 4, 5]
+lst.reverse()
+print(lst)  # Output: [5, 4, 3, 2, 1]
+
+
+# sort(key=None, reverse=False) Method
+# Description: The sort() method in Python is used to sort the elements of a list in place (i.e., it modifies the list directly). It has two optional parameters: key and reverse
+# Use Case: To sort elements in a list either in ascending or descending order.
+# key: A function that takes one input (an element from the list) and returns a value that will be used to sort the elements. This allows you to sort the list based on custom criteria.
+# reverse: A boolean value (default is False). If True, the list will be sorted in descending order; if False (default), the list will be sorted in ascending order.
+
+numbers = [5, 2, 9, 1, 5, 6]
+# Sort the list in ascending order (default behavior)
+numbers.sort()
+print(numbers)  # Output: [1, 2, 5, 5, 6, 9]
+
+numbers = [5, 2, 9, 1, 5, 6]
+# Sort the list in descending order
+numbers.sort(reverse=True)
+print(numbers)  # Output: [9, 6, 5, 5, 2, 1]
+
+words = ["banana", "apple", "cherry", "date"]
+# Sort the list based on the length of each word
+words.sort(key=len)
+print(words)  # Output: ['date', 'apple', 'banana', 'cherry']
+
+
+# List Indexing and Slicing
+# Lists support indexing and slicing, which allows you to access specific elements or a range of elements.
+squares = [1, 4, 9, 16, 25]
+print(squares[0])  # Output: 1
+print(squares[-1])  # Output: 25
+print(squares[-3:])  # Output: [9, 16, 25]
++---+---+---+---+---+
+| 1 | 4 | 9 | 16 | 25 |
++---+---+---+---+---+
+  0    1   2   3    4
+ -5   -4  -3  -2   -1
+
+
+# Concatenation and Modification
+# Lists can be concatenated using the + operator, and you can modify elements by assigning new values.
+squares = [1, 4, 9, 16, 25]
+squares += [36, 49, 64, 81, 100]  # Concatenation
+print(squares)  # Output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+cubes = [1, 8, 27, 65, 125]
+cubes[3] = 64  # Correcting an incorrect value
+print(cubes)  # Output: [1, 8, 27, 64, 125]
+
+# Nested Lists
+# Lists can contain other lists, allowing for complex data structures.
+a = ['a', 'b', 'c']
+n = [1, 2, 3]
+x = [a, n]
+print(x)  # Output: [['a', 'b', 'c'], [1, 2, 3]]
+print(x[0][1])  # Output: 'b'
+print(x[1][2])  # Output: 3
+
+# Modifying List Values
+# Lists are mutable, meaning their values can be updated using slice assignments.
+lst = [1, 2, 3, 4, 5, 6]
+lst[2] = 10  # Update the value at index 2
+print(lst)  # Output: [1, 2, 10, 4, 5, 6]
+
+c # Update a slice of the list from 1 to 3 index
+print(lst)  # Output: [1, 89, 78, 4, 5, 6]
+
+lst[-1] = 25  # Update the last element
+print(lst)  # Output: [1, 89, 78, 4, 5, 25]
+
+
+# Python List Operations
+# The concatenation + and repetition * operators work with lists just as they do with strings.
+l1 = [1, 2, 3, 4]
+l2 = [5, 6, 7, 8]
+print(l1 * 2 + l2)  # Output: [1, 2, 3, 4, 1, 2, 3, 4, 5, 6, 7, 8]
+print(len(l1))  # Output: 4
+
+
+#List Comprehension
+# List comprehension is a concise way to create or modify lists in Python. It allows you to construct lists using a compact syntax that consists of an expression followed by a for loop, optionally including if conditions.
+[expression for item in iterable if condition]
+# expression: The operation or value you want to include in the new list.
+# item: Each item in the original iterable.
+# iterable: The original iterable (like a list, tuple, etc.).
+# condition: (Optional) A condition that filters items from the original iterable.
+
+
+# Creating a List of Tuples
+pairs = [(i, j) for i in range(3) for j in range(3)]
+print(pairs)  # Output: [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
 
 
 
+# Slicing Sequences
+# Slicing is a technique in Python that allows you to extract parts of a sequence (like lists, strings) using a range of indices. Slicing provides a powerful way to access specific parts of a sequence without modifying the original sequence.
+l = [10, 20, 30, 40, 50, 60]
+print(l[:2])  # This gives [10, 20]
+print(l[2:])  # This gives [30, 40, 50, 60]
+
+# Explanation:
+# l[:2]: This slices the list from the start to the second element (excluding index 2). The output is [10, 20].
+# l[2:]: This slices the list from the third element (index 2) to the end. The output is [30, 40, 50, 60].
 
 
+# String Slicing Examples
+s = 'bicycle'
+print(s[::3])   # 'bye'
+print(s[::-1])  # 'elcycib'
+print(s[::-2])  # 'eccb'
 
+# Explanation:
+# s[::3]: This slices the string with a step of 3, meaning it takes every third character. The output is 'bye'.
+# s[::-1]: This slices the string in reverse order, reversing the string. The output is 'elcycib'.
+# s[::-2]: This slices the string in reverse order but skips every second character. The output is 'eccb'.
+
+# The start index is included (the slice starts from this index).
+# **The end index is excluded (the slice goes up to, but does not include, this index).
+
+
+#Tuple
+# A tuple in Python is an ordered collection of elements and it is immutable. Tuples are defined by enclosing the elements in parentheses () and separating them with commas. Unlike lists, which are mutable, tuples cannot be modified after they are created.
 
 
 
