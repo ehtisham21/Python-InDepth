@@ -509,13 +509,281 @@ print(s[::-2])  # 'eccb'
 
 #Tuple
 # A tuple in Python is an ordered collection of elements and it is immutable. Tuples are defined by enclosing the elements in parentheses () and separating them with commas. Unlike lists, which are mutable, tuples cannot be modified after they are created.
+# Use Cases of Tuples
+# Immutable Data: Data that should not be changed once assigned.
+# Multiple Return Values: Functions can return multiple values in a single tuple.
+# Dictionary Keys: Tuples can be used as keys in dictionaries due to their immutability.
+# Efficient Data Handling: Tuples have a smaller memory footprint compared to lists.
+
+
+# Basics - Tuple Packing and Unpacking
+# Tuple Packing: When we pack values into a tuple.
+# Tuple Unpacking: When we extract values back into variables.
+
+# Tuple Packing
+t = 12345, 54321, 'hello!'
+print(t)  # Output: (12345, 54321, 'hello!')
+
+# Tuple Unpacking
+a, b, c = t
+print(a, b, c)  # Output: 12345 54321 hello!
 
 
 
+# Creating Tuples
+# Empty Tuple:
+empty_tuple = ()
+print(type(empty_tuple))  # Output: <class 'tuple'>
+
+# Single Element Tuple:
+single_tuple = ("Python",)  # Note the comma
+print(type(single_tuple))  # Output: <class 'tuple'>
+
+# Multiple Elements:
+multi_tuple = (1, 2, 3, "Python", True)
+print(multi_tuple)  # Output: (1, 2, 3, 'Python', True)
 
 
+# Looping Through Tuples
+# You can loop through all the values in a tuple using a for loop:
+dimensions = (200, 50)
+for dimension in dimensions:
+    print(dimension)
+# Output:
+# 200
+# 50
+
+# Modifying Tuples
+dimensions = (200, 50)
+dimensions[0] = 250  # Raises TypeError: 'tuple' object does not support item assignment because the tuples are immutable.
+
+# Tuple Indexing and Slicing
+# Tuples support indexing and slicing, just like lists:
+tuple1 = (1, 2, 3, 4, 5, 6)
+
+# Indexing
+print(tuple1[0])  # Output: 1
+print(tuple1[-1])  # Output: 6
+
+# Slicing
+print(tuple1[1:4])  # Output: (2, 3, 4)
+print(tuple1[::2])  # Output: (1, 3, 5)
 
 
+# Deleting Tuples
+# While you cannot delete an element from a tuple, you can delete an entire tuple using the del keyword:
+tuple1 = (1, 2, 3, 4, 5)
+del tuple1
+# print(tuple1)  # Raises NameError: name 'tuple1' is not defined
+
+
+# Example: Using Tuple Methods
+# count()	Returns the number of times a specified value appears in the tuple.
+# index()	Returns the index of the first occurrence of a specified value in the tuple.
+tup = (1, 2, 2, 3, 4, 4, 4, 5)
+
+# count()
+print(tup.count(4))  # Output: 3
+
+# index()
+print(tup.index(2))  # Output: 1
+
+#Set
+# A set is an unordered collection of unique and mutable elements in Python. It is defined by placing elements within curly braces {} or by using the built-in set() function.
+# Key Characteristics of a Set:
+# Unordered: The elements do not have a defined order.
+# Unique: No duplicate elements are allowed.
+# Mutable: You can add or remove elements from a set.
+
+# Example 1: Creating a Set Using Curly Braces
+# Creating a set with curly braces
+my_set = {1, 2, 3, 4, 5}
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+# Example 2: Creating a Set Using the set() Constructor
+# Creating a set from a list using the set() constructor
+my_set = set([1, 2, 3, 3, 4, 4, 5])
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+# Example 3: Creating an Empty Set
+# Creating an empty set
+empty_set = set()
+print(empty_set)  # Output: set()
+
+
+# Set Methods with Examples
+# add(): Adds an element to the set.
+
+# 🍎 Adding an element to the set
+fruits = {"apple", "banana", "cherry"}
+fruits.add("orange")
+print(fruits)  # Output: {'apple', 'banana', 'cherry', 'orange'}
+# Explanation: The add() method is used to add a single element to a set. Since sets do not allow duplicates, if the element already exists, it will not be added again.
+# clear(): Removes all elements from the set.
+# 🧹 Clearing all elements from the set
+fruits = {"apple", "banana", "cherry"}
+fruits.clear()
+print(fruits)  # Output: set()
+# Explanation: The clear() method removes all the elements from the set, resulting in an empty set.
+
+# copy(): Returns a shallow copy of the set.
+# 📋 Making a shallow copy of the set
+fruits = {"apple", "banana", "cherry"}
+new_fruits = fruits.copy()
+print(new_fruits)  # Output: {'apple', 'banana', 'cherry'}
+# Explanation: The copy() method creates a shallow copy of the set. This means a new set is created, but the elements are references to the same objects in memory.
+
+
+# What is a Shallow Copy?
+# A shallow copy creates a new set object but does not create copies of the elements contained in the original set; instead, it references them. If the elements are immutable (like strings, integers), a shallow copy behaves the same as a deep copy. However, if the set contains mutable objects (like lists or dictionaries), changes to those mutable objects will be reflected in both the original and the copied set.
+
+# difference(): Returns a set containing the difference between two or more sets.
+# ➖ Difference between sets
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.difference(set2)
+print(result)  # Output: {1, 2}
+# Explanation: The difference() method returns a new set containing elements that are in the first set but not in the second set.
+
+
+# discard(): Removes the specified item. If the item is not found, it does not raise an error.
+# 🚫 Discarding an element
+fruits = {"apple", "banana", "cherry"}
+fruits.discard("banana")
+print(fruits)  # Output: {'apple', 'cherry'}
+fruits.discard("pear")  # Does nothing since "pear" is not in the set
+
+# intersection(): Returns a set that is the intersection of two or more sets.
+# Intersection of sets
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.intersection(set2)
+print(result)  # Output: {3, 4}
+# Explanation: The intersection() method returns a new set that contains only the common elements from both sets.
+
+
+# pop(): Removes and returns an arbitrary element from the set.
+# 🔄 Popping an element from the set
+fruits = {"apple", "banana", "cherry"}
+item = fruits.pop()
+print(item)  # Output: Random element (e.g., 'banana')
+print(fruits)  # Output: Remaining set without the popped element
+
+# remove(): Removes the specified element from the set. If the element is not found, it raises a KeyError.
+# 🗑️ Removing an element from the set
+fruits = {"apple", "banana", "cherry"}
+fruits.remove("banana")
+print(fruits)  # Output: {'apple', 'cherry'}
+# fruits.remove("pear")  # Raises KeyError
+
+# union(): Returns a set that contains all items from the original set and all items from the specified sets.
+# 🔗 Union of two sets
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+result = set1.union(set2)
+print(result)  # Output: {1, 2, 3, 4, 5}
+# Explanation: The union() method returns a new set containing all the unique elements from both sets.
+
+# Dictionary
+# A dictionary in Python is a collection of unordered key-value pairs. Each key is connected to a value, and you can use a key to access the value associated with that key.
+# Key Characteristics of a Dictionary:
+# Unordered: The elements are not stored in any particular order.
+# Mutable: You can change, add, or remove elements after the dictionary is created.
+# Key-value pairs: Each element in the dictionary is a pair, where the key is unique and maps to a specific value.
+
+# A Simple Dictionary Example
+alien_0 = {'color': 'green', 'points': 5}
+print(alien_0['color'])
+print(alien_0['points'])
+
+# Adding New Key-Value Pairs
+alien_0 = {'color': 'green', 'points': 5}
+alien_0['x_position'] = 0
+alien_0['y_position'] = 25
+print(alien_0)   #{'color': 'green', 'points': 5, 'x_position': 0, 'y_position': 25}
+
+# Modifying Values in a Dictionary
+alien_0 = {'color': 'green'}
+print(f"The alien is {alien_0['color']}.")
+alien_0['color'] = 'yellow'
+print(f"The alien is now {alien_0['color']}.")
+
+# Removing Key-Value Pairs
+alien_0 = {'color': 'green', 'points': 5}
+del alien_0['points']
+print(alien_0)   #{'color': 'green'}
+
+
+# Using get() to Access Values
+# The get() method is useful when you want to access a key's value without risking a KeyError if the key does not exist.
+alien_0 = {'color': 'green', 'speed': 'slow'}
+print(alien_0.get('points', 'No point value assigned.'))   #No point value assigned.
+
+
+# Looping Through a Dictionary
+user_0 = {'username': 'efermi', 'first': 'enrico', 'last': 'fermi'}
+for key, value in user_0.items():
+    print(f"Key: {key}")
+    print(f"Value: {value}")
+
+# Looping Through All Keys
+# To loop through all keys in a dictionary, use the .keys() method:
+favorite_languages = {'jen': 'python', 'sarah': 'c', 'edward': 'rust'}
+for name in favorite_languages.keys():
+    print(name.title())
+
+# Looping Through All Values
+# To loop through all values in a dictionary, use the .values() method:
+print("The following languages have been mentioned:")
+for language in favorite_languages.values():
+    print(language.title())
+
+
+# Dictionary Unpacking in Python
+# Dictionary unpacking allows you to extract key-value pairs from a dictionary and assign them to variables. This feature makes the code more readable and allows for more concise variable assignments.
+def greet_user(name, age):
+    print(f"Hello, {name}! You are {age} years old.")
+
+user_info = {'name': 'Alice', 'age': 30}
+
+# Unpacking the dictionary into the function call
+greet_user(**user_info)
+
+
+# Another Example
+def greet_user(**user_info):
+    return user_info
+
+user_info = {'name': 'Alice', 'age': 30}
+a = greet_user(**user_info)
+print(f'Unpacked dictionary: {a}')
+# Explanation: The ** operator unpacks the dictionary user_info into keyword arguments for the function greet_user().
+
+
+# Dictionary Comprehensions
+# Dictionary comprehensions provide a concise way to create dictionaries. They are similar to list comprehensions but allow you to generate key-value pairs for dictionaries in a readable, single-line format.
+{key_expression: value_expression for item in iterable}
+
+# Example: Creating a Dictionary from a List
+numbers = [1, 2, 3, 4, 5]
+squares = {num: num ** 2 for num in numbers}
+print(squares) #{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+#zip() function
+# In Python, the zip() function is a built-in function used to combine multiple iterables (e.g., lists, tuples) element by element, creating an iterator of tuples. Each tuple contains elements from the input iterables at the same position. It's commonly used for pairing elements from two or more iterables.
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+
+zipped = zip(list1, list2)
+
+# Convert the zip object to a list (or any other collection type)
+print(list(zipped))  # Output: [(1, 'a'), (2, 'b'), (3, 'c')]
+
+
+# List: An ordered, mutable collection that allows duplicates.
+# Tuple: An ordered, immutable collection used for fixed sequences of items.
+# Set: An unordered, mutable collection that eliminates duplicates.
+# Dictionary: An unordered, mutable collection of key-value pairs, where each key is unique.
 
 
 
